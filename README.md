@@ -56,3 +56,9 @@ make
 ### 错误
 - 若找不到 gmp 库，或其他与 gmp 库相关的错误，Windows 用户前往[大佬的博客](https://wdh.hk/docs/gmp-windows/)查看解决方案；macOs 与 Linux 用户使用 ```brew install gmp```安装
 - 若出现未知错误，请提交 issue
+
+## TODO
+- 指数运算
+- 对数函数
+- 三角函数
+- ……
