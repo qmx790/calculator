@@ -1,6 +1,6 @@
 #include "fraction.h"
 
-// 构造函数
+// Fraction 类的构造函数，用于初始化分数并检查分母是否为零
 Fraction::Fraction(const mpq_class& value) : fraction(value) {
     // 检查分母是否为零
     if (fraction.get_den() == 0) {
@@ -8,6 +8,7 @@ Fraction::Fraction(const mpq_class& value) : fraction(value) {
     }
 }
 
+// 将分数简化为最简形式
 mpq_class Fraction::simplify(const mpq_class &frac) const {
     mpq_class simplified = frac;
     simplified.canonicalize(); // 规范化分数
@@ -31,7 +32,6 @@ std::string Fraction::improperToProper() const {
     return wholeStr + " and " + numeratorStr + "/" + denominatorStr; // 返回带分数
 }
 
-
 // 格式化输出带分数
 std::string Fraction::toMixedFraction() const {
     return improperToProper();
@@ -51,7 +51,7 @@ std::string Fraction::mpqToString(const mpq_class& fraction) const {
     return numerator + "/" + denominator;
 }
 
-// 实现输入操作符
+// 实现输入操作符，允许从输入流读取 Fraction 对象
 std::istream& operator>>(std::istream& in, Fraction& fraction) {
     std::string input;
     in >> input; // 从流读取为字符串
@@ -59,7 +59,7 @@ std::istream& operator>>(std::istream& in, Fraction& fraction) {
     return in; // 返回流
 }
 
-// 实现输出操作符
+// 实现输出操作符，允许将 Fraction 对象输出到输出流
 std::ostream& operator<<(std::ostream& out, const Fraction& fraction) {
     // 使用 gmpxx 的 mpq_class 的输入输出格式
     out << fraction.fraction.get_num() << "/" << fraction.fraction.get_den(); // 输出分子和分母
