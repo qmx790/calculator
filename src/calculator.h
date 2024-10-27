@@ -12,7 +12,7 @@ public:
     mpq_class calculate(const std::string& input);
 
 private:
-    int precedence(char operation);
-    bool isOperator(char c);
-    void processOperator(std::stack<mpq_class>& values, std::stack<char>& operators);
+    static int precedence(char operation);
+    static bool isOperator(char c);
+    static void processOperator(std::stack<mpq_class>& values, std::stack<char>& operators);
 };

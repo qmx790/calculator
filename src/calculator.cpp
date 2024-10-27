@@ -24,19 +24,19 @@ void Calculator::processOperator(std::stack<mpq_class> &values, std::stack<char>
 
     switch (operation) {
         case '+':
-            values.push(left + right);
+            values.emplace(left + right);
             break;
         case '-':
-            values.push(left - right);
+            values.emplace(left - right);
             break;
         case '*':
-            values.push(left * right);
+            values.emplace(left * right);
             break;
         case '/':
             if (right == 0) {
                 throw std::invalid_argument("除数不能为零");
             }
-            values.push(left / right);
+            values.emplace(left / right);
             break;
     }
 }
